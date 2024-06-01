@@ -2,6 +2,7 @@ let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
 let assignment = require('./routes/assignments');
+let matiere = require('./routes/matieres')
 
 // port sur lequel le serveur va tourner
 let port = process.env.PORT || 8010;
@@ -54,7 +55,9 @@ app.route(prefix + '/assignments')
 app.route(prefix + '/assignments/:id')
   .get(assignment.getAssignment)
   .delete(assignment.deleteAssignment);
-  
+
+app.route(prefix + '/matieres')
+  .get(matiere.getMatieres)
 
 // On démarre le serveur
 app.listen(port, "0.0.0.0");
