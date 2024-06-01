@@ -59,6 +59,9 @@ app.route(prefix + '/assignments/:id')
 app.route(prefix + '/matieres')
   .get(matiere.getMatieres)
 
+app.route(prefix + '/matieres/:id')
+  .get(matiere.getMatiere)
+
 // On démarre le serveur
 app.listen(port, "0.0.0.0");
 console.log('Serveur démarré sur http://localhost:' + port);

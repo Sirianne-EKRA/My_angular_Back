@@ -27,14 +27,13 @@ function getMatieres(req, res) {
             }
             res.send(matieres);
         });
-}
+} 
 
 // Récupérer un assignment par son id (GET)
 function getMatiere(req, res){
     let matiereId = new ObjectId(req.params.id);
     console.log("GET matiere by id : " + matiereId)
     // matiereId est une string correspondant à un _id de MongoDB
-    // je veux une requête Mongoose qui renvoie l'objet ayant ce _id
     Matiere.findById(matiereId, (err, matiere) => {
         if(err){
             res.send(err)
